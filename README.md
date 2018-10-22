@@ -38,3 +38,13 @@ code: save_all_1_step.m
 This way all UF-1, UF-2 and UF-3 are processed and saved
 
 _Next, we process the data time-groupwise._ 
+
+
+5.0. In the window of time-gap, we first take all the utterance step forecastinfg data (1 step, 2 step and 3 step), find the time distance of forecasting in them and then regroup them. We will use the time range of:
+1<=time_distance<5
+5<=time_distance<10
+10<=time_distance<15
+
+The 3 time groups data are saved and following the same process of UF, they are prepared and normalized and saved for analysis.
+
+code: 
