@@ -29,7 +29,7 @@ c. You must forecast within a dialog. Therferefore the last utterance of the dia
 
 We take emotions 0-3 categorical labels only. After the reformation of the data, we will z-normalize the data. Followed by that, we will do the zero padding at the end of the features of speakers that has length less than the longest utterance.
 
-code: preparing-1_step.m
+code: preparing_1_step.m
 
 4.2.  We will use keras library with python for LSTM and BLSTM operation. Therefore, the data needs to be reshaped and saved likewise. 
 code: save_all_1_step.m 
