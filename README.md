@@ -32,3 +32,4 @@ We take emotions 0-3 categorical labels only. After the reformation of the data,
 code: preparing-1_step.m
 
 4.2.  We will use keras library with python for LSTM and BLSTM operation. Therefore, the data needs to be reshaped and saved likewise. 
+code: save_all_1_step.m 
