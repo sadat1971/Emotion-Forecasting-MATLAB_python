@@ -55,3 +55,12 @@ _Next, we process the data for history-added forecasting._
 
 code: history_prepare_data_all.m
 
+7.  Then we do the leave one out CV for D-LSTM and D-BLSTM. Keras library is used for this purpose. we select the following configurations:
+_2 LSTM layers, 1 FC layers and 1 softmax output layer_
+_RELU as activation_
+_ADAM with 0.0001 learning rate and 128 as batch size_
+_masking layer to prevent the 0's at the end_
+_selecting the stopping criteria by early stopping, when the cross validating recall  is not increased after 10 epochs_
+
+
+code: group_2_stat.ipynb 
