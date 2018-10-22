@@ -21,7 +21,6 @@ Feature Extraction at 25 ms framerate and 50 ms window.
 code: gather_all_AV.m
 3. Then we do the windowing. 30 frames, with 50% overlap, using 5 statistical features-- means, std, first-quantile, third-quantile and interquartile range. In total, there will be 895 features (41 audio+138 video= 179 and 5 statistical 179X5=895 features)
 code: Windowing.m
-
 4.1.  Utterance Forecasting (UF) preparation of the data:  Then for forecasting, we prepare the data. The preparation is tricky. Things we have to keep in mind-
 a. Forecasting uses current data and label for the next utterance.
 b. You must use data and label from the same speaker
