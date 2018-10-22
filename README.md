@@ -35,6 +35,6 @@ code: preparing_1_step.m
 code: save_all_1_step.m 
 
 
-*This way all UF-1, UF-2 and UF-3 are processed and saved
+This way all UF-1, UF-2 and UF-3 are processed and saved
 
 Next, we process the data time-groupwise. 
