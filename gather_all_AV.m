@@ -3,7 +3,7 @@
 
 %% At the end, the data will be saved as a structure
 % AV(N).name: name of the utterance
-% AV(N).video: 165 video features with all NaN values being removed
+% AV(N).video: 138 video features with all NaN values being removed
 % AV(N).audio: all auio fetaures-- pitch, MFCC, MFB and Energy
 % AV(N).categorical: All categorical labels
 
