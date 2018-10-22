@@ -47,4 +47,11 @@ _Next, we process the data time-groupwise._
 
 The 3 time groups data are saved and following the same process of UF, they are prepared and normalized and saved for analysis.
 
-code: 
+code: find_delay.m
+
+_Next, we process the data for history-added forecasting._
+
+6.0. Just while processing, we add the previous utterance with the current utterance. Notedly, there cannot be previous data for all utterance case. For the first utterance of a dialog, we willnot find the 'history' or previous utterance. The rest of the process is all the same. 
+
+code: history_prepare_data_all.m
+
