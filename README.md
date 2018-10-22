@@ -33,3 +33,8 @@ code: preparing_1_step.m
 
 4.2.  We will use keras library with python for LSTM and BLSTM operation. Therefore, the data needs to be reshaped and saved likewise. 
 code: save_all_1_step.m 
+
+
+*This way all UF-1, UF-2 and UF-3 are processed and saved
+
+Next, we process the data time-groupwise. 
