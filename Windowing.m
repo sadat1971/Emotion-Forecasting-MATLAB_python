@@ -1,6 +1,6 @@
 
 %% find the statistical values
-%this code converts the framewise data to windowwise data.
+% this code converts the framewise data to windowwise data.
 % At the end of the code, we will convert all our data to windowise
 % features. All categorical labels are there (0-9).
 % stat(N).name: name of the utterance
