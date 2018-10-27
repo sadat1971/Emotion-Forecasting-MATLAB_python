@@ -15,7 +15,8 @@ test_CHI = TT(:, 1:9);
        test_MOU = TT(:,136:159);
 CHI: chin, FH: forehead, CHK: cheek, BM: upper eyebrow, BRO: eyebrow, MOU: mouth
 Feature Extraction at 25 ms framerate and 50 ms window.
-*code: audio_feat.praat*
+
+**code: audio_feat.praat**
 
 2. For the NaN features, we have used linear interpolation. If the NaN values of an utterance is more than 30%, we have removed that utterance. 
 code: gather_all_AV.m
