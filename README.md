@@ -17,13 +17,13 @@ CHI: chin, FH: forehead, CHK: cheek, BM: upper eyebrow, BRO: eyebrow, MOU: mouth
 Feature Extraction at 25 ms framerate and 50 ms window.
 
 **code: audio_feat.praat**
-
 2. For the NaN features, we have used linear interpolation. If the NaN values of an utterance is more than 30%, we have removed that utterance. 
 code: gather_all_AV.m
 3. Then we do the windowing. 30 frames, with 50% overlap, using 5 statistical features-- means, std, first-quantile, third-quantile and interquartile range. In total, there will be 895 features (41 audio+138 video= 179 and 5 statistical 179X5=895 features)
 code: Windowing.m
 
-4.1.  Utterance Forecasting (UF) preparation of the data:  Then for forecasting, we prepare the data. The preparation is tricky. Things we have to keep in mind-
+4.
+- Utterance Forecasting (UF) preparation of the data:  Then for forecasting, we prepare the data. The preparation is tricky. Things we have to keep in mind-
 a. Forecasting uses current data and label for the next utterance.
 b. You must use data and label from the same speaker
 c. You must forecast within a dialog. Therferefore the last utterance of the dialog needs to be discarded. 
@@ -32,7 +32,7 @@ We take emotions 0-3 categorical labels only. After the reformation of the data,
 
 code: preparing_1_step.m
 
-4.2.  We will use keras library with python for LSTM and BLSTM operation. Therefore, the data needs to be reshaped and saved likewise. 
+-  We will use keras library with python for LSTM and BLSTM operation. Therefore, the data needs to be reshaped and saved likewise. 
 code: save_all_1_step.m 
 
 
