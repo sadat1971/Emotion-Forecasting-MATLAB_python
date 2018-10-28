@@ -3,7 +3,7 @@
 """
 Created on Fri Oct 26 19:43:52 2018
 
-This code will apply D-BLSTM on your data
+This code will apply FC-DNN on your data
 
 @author: sadat
 last updated: 27-10-2018
