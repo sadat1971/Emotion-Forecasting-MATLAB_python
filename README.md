@@ -23,14 +23,29 @@ Feature Extraction at 25 ms framerate and 50 ms window.
 **Step 3. Windowing of the frames**: Then we do the windowing. 30 frames, with 50% overlap, using 5 statistical features-- means, std, first-quantile, third-quantile and interquartile range. In total, there will be 895 features (41 audio+138 video= 179 and 5 statistical 179X5=895 features)
 > code: f_window.m 
 
-**Step 4: Preparing and Normalizing data for Utterance Forecasting with current data only (UF-cur)**: for forecasting, we prepare the data. The preparation is tricky. Things we have to keep in mind-
-- Forecasting uses current data and label for the next utterance.
+**Step 4: Preparing and Normalizing data for Utterance Forecasting (UF)**: For forecasting, we prepare the data. The preparation is tricky. Things we have to keep in mind-
+- Forecasting uses current data and label for the next utterance(UF-1), or one after the next utterance (UF-2), or two after the next utterance (UF-3).
 - You must use data and label from the same speaker
 - You must forecast within a dialog. Therferefore the last utterance of the dialog needs to be discarded.
-
+Now, while doing the history-added forecasting (UF-his), we need to be careful in adding previous utterance history. The first utterance of a dialog will not have any history utterance. 
 We take emotions 0-3 categorical labels only. After the reformation of the data, we will z-normalize the data. Followed by that, we will do the zero padding at the end of the features of speakers that has length less than the longest utterance.
 
-> code: UF_prparing_cur.m
+> code: UF_prparing_cur.m (for UF-cur) and UF_preaparing_his (for UF-his)
+
+
+**Step 5: Creating subset of data for Time Forecasting (TF)**: In TF, first we take all the utterance step forecasting data (UF-1,2 ,3), find the time distance of forecasting in them and then regroup them depending on the time-distance of forecasting. We will use the time range of:
+1<=time_distance<5
+5<=time_distance<10
+10<=time_distance<15
+
+The 3 time groups data are saved.
+> code: create_TF_subsets_from_UF.m
+
+**Step 6: Preparing and Normalizing data for Time Forecasting (UF)**: Similar as step 4
+> code: TF_prparing_cur.m (for TF-cur) and TF_preaparing_his (for TF-his)
+
+**Step 7: Saving the data for running the models**: The data are saved in CSV format for DNN, D-LSTM and D-BLSTM operation.
+>code: saving.m
 
 -  We will use keras library with python for LSTM and BLSTM operation. Therefore, the data needs to be reshaped and saved likewise. 
 code: save_all_1_step.m 
