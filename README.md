@@ -87,11 +87,17 @@ For example, to prepare the dataset for TF-his 2, you have to write,
 
 The description of function files are below:
 **f_window()**: This code converts the framewise data to windowwise data.
+
 **UF_preparing_cur(st)**: This code prepare data for the task of Utterance forecasting. At the end of the code, we will find a prepared dataset for utterance forecasting. The preparation includes normalization and zero padding at the end. It takes step size as input.
+
 **UF_preparing_his(st)**: This code will take history for Utterance forecasting and prepare data for forecasting. This function has a dependendency and it is, we must run *UF_preparing_cur* first. It takes step size as input.
+
 **create_TF_subsets_from_UF()**: This piece of code will calculate the time distance of utterance step forecasting and organize all of them in a manner that their time distance fall into a definite time-group.
+
 **TF_preparing_cur(st)**: This function process the data from the subset of UF (which is saved time-distance wise or TF  1, 2 or 3). The processing includes making the statistical features and normalization. It takes step size as input.
+
 **TF_preparing_his(st)**: This code will take history for Time forecasting and prepare data for forecasting. This function has a dependendency and it is, we must run *TF_preparing_cur* first. It takes step size as input.
+
 **saving(st, FW, history)**: This code will save all the prepared and normalized data in a way that they can be used for running FC-DNN, D-LSTM and D-BLSTM network. It takes step size, forecasting window and history ('his' or 'cur') as input. The function returns the size of the data which will be used in *D_LSTM.py* and *D_BLSTM.py*. The variable returned will have following form:  >(utterance_number, window_size, 895). 
 
 
