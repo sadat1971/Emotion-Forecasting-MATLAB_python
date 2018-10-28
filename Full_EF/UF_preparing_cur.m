@@ -1,5 +1,5 @@
-%% This code prepare data for the task of 1-step forecasting
-%At the end of the code, we will find a prepared dataset for 1- step
+%% This code prepare data for the task of Utterance forecasting
+%At the end of the code, we will find a prepared dataset for utterance
 %forecasting. The preparation includes normalization and zero padding at
 %the end 
 
