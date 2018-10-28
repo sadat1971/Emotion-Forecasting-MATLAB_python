@@ -43,14 +43,17 @@ for train, test in logo.split(X, Y_int, grp):
     callbacks = [EarlyStopping(monitor='val_loss', patience=10)]
       # create model
     F2model = Sequential()
-    F2model.add(Dense(128, input_dim=895, activation='relu', kernel_initializer=keras.initializers.VarianceScaling(scale=1.0, mode='fan_in', distribution='normal', seed=None)))
+    F2model.add(Dense(256, input_dim=895, activation='relu'))
     F2model.add(Dropout(0.5))
+    F2model.add(Dense(256))
+    F2model.add(Dropout(0.5))
+    F2model.add(Dense(256))    
     F2model.add(Dense(4, activation='softmax'))
     # Compile model
     ADAM=keras.optimizers.Adam(lr=0.0001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
-    F2model.compile(loss='categorical_crossentropy', optimizer='sgd', metrics=['accuracy'])
+    F2model.compile(loss='categorical_crossentropy', optimizer='ADAM', metrics=['accuracy'])
     Y = np_utils.to_categorical(Y_int[train])
-    history=F2model.fit(X[train], Y, epochs=50,validation_split=0.1 ,callbacks=callbacks, batch_size=128, verbose=1)
+    history=F2model.fit(X[train], Y, epochs=50,validation_split=0.2 ,callbacks=callbacks, batch_size=128, verbose=1)
     len(history.history['loss'])
     X_pred=F2model.predict(X[test,:])
     Y_pred=numpy.argmax(X_pred, axis=1)
