@@ -4,6 +4,7 @@ The FG2019 paper submitted as Audio-Visual Emotion Forecasting. This repository 
 
 The work is explained in steps:
 
+## Data Preparation and processing
 **Step 1. Feature Extraction:**
 Audio: MFB(27), MFCC(12), Pitch, Energy
 Video: Facial Markers: 46 facial markers (3-d)
@@ -47,36 +48,31 @@ The 3 time groups data are saved.
 **Step 7: Saving the data for running the models**: The data are saved in CSV format for DNN, D-LSTM and D-BLSTM operation.
 >code: saving.m
 
--  We will use keras library with python for LSTM and BLSTM operation. Therefore, the data needs to be reshaped and saved likewise. 
-code: save_all_1_step.m 
+
+## Building the Models
+
+**Step 8: Running the FC-DNN:** The FC-DNN will have 3 FC layers and one softmax output layer at the end. FC-DNN has 
+following criterias:
+-RELU as activation
+-ADAM with 0.0001 learning rate and 128 as batch size
+-masking layer to prevent the 0's at the end
+-selecting the stopping criteria by early stopping, when the cross validating recall  is not increased after 10 epochs
+-Using leave-one-subject-Out and using 20% of the training data in each fold for choosing the number of epochs
+-We use unweighted accuracy as performance measure.
+
+> code: FC_DNN.py
+
+**Step 9: Running the D-LSTM and D-BLSTM:** The D-LSTM will have two LSTM layers, one FC layer and one softmax output layer at the end. They have following criterias:
+-RELU as activation
+-ADAM with 0.0001 learning rate and 128 as batch size
+-masking layer to prevent the 0's at the end
+-selecting the stopping criteria by early stopping, when the cross validating recall  is not increased after 10 epochs
+-Using leave-one-subject-Out and using 20% of the training data in each fold for choosing the number of epochs
+-We use unweighted accuracy as performance measure
+
+The same criterias are for D-BLSTM too.
+
+> code: D_LSTM.py and D_BLSTM.py
 
 
-This way all UF-1, UF-2 and UF-3 are processed and saved
 
-_Next, we process the data time-groupwise._ 
-
-
-5.0. In the window of time-gap, we first take all the utterance step forecastinfg data (1 step, 2 step and 3 step), find the time distance of forecasting in them and then regroup them. We will use the time range of:
-1<=time_distance<5
-5<=time_distance<10
-10<=time_distance<15
-
-The 3 time groups data are saved and following the same process of UF, they are prepared and normalized and saved for analysis.
-
-code: find_delay.m
-
-_Next, we process the data for history-added forecasting._
-
-6.0. Just while processing, we add the previous utterance with the current utterance. Notedly, there cannot be previous data for all utterance case. For the first utterance of a dialog, we willnot find the 'history' or previous utterance. The rest of the process is all the same. 
-
-code: history_prepare_data_all.m
-
-7.  Then we do the leave one out CV for D-LSTM and D-BLSTM. Keras library is used for this purpose. we select the following configurations:
-_2 LSTM layers, 1 FC layers and 1 softmax output layer_
-_RELU as activation_
-_ADAM with 0.0001 learning rate and 128 as batch size_
-_masking layer to prevent the 0's at the end_
-_selecting the stopping criteria by early stopping, when the cross validating recall  is not increased after 10 epochs_
-
-
-code: group_2_stat.ipynb 
