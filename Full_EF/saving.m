@@ -1,4 +1,4 @@
-%% This code will save all the prepared and normalized data in a way that they can be used for running LSTM and BLSTM network
+%% This code will save all the prepared and normalized data in a way that they can be used for running FC-DNN, D-LSTM and D-BLSTM network
 % Input: st (1,2,3)
 %        FW ('UF', 'TF')
 %        history ('his' or 'cur')
