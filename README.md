@@ -102,14 +102,18 @@ The description of function files are below:
 
 
 b. For running different models, the 3 codes are used. Go to the **Full_EF** directory and run :
-- for FC-DNN > python FC_DNN.py
+- for FC-DNN 
+> python FC_DNN.py
 - for D-LSTM and D-BLSTM, open the *D_LSTN.py* file. In the variable name *utterances*, put down the utterance_number and *W_Length*,put down the window_size from the output of *saving* function. Then run,
 > python D_LSTM.py
+
 > python D_BLSTM.py
 
 
 **FC_DNN.py**: This code will apply FC-DNN on your data
+
 **D_LSTM.py**: This code will apply D-LSTM on your data
+
 **D_LSTM.py**: This code will apply D-BLSTM on your data
 
 
