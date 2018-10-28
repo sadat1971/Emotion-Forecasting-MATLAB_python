@@ -74,5 +74,37 @@ The same criterias are for D-BLSTM too.
 
 > code: D_LSTM.py and D_BLSTM.py
 
+## How to  Run
+
+For running the codes, you need _MATLAB (any version after 7.0)_, _Python  (Any version after 3.0)_ with keras installed.
+Download the the folder **Full_EF** and also put the **IEMOCAP_data** and **All_audiovisual** folders from >kimlab/Sadat/IEMOCAP_forcasting/Full_EF. 
+
+a. For preaparing you desire dataset go to the **Full_EF** directory and run in matlab >MAIN_PROCESS(st, FW, history),
+
+where for *st* stands for step size (1, 2 or 3), *FW* stands for Forecasting Window ('UF' or 'TF') , and *history* stands for presence or absence of history ('cur' or 'his').
+For example, to prepare the dataset for TF-his 2, you have to write,
+> MAIN_PROCESS(2, 'TF', 'his')
+
+The description of function files are below:
+**f_window()**: This code converts the framewise data to windowwise data.
+**UF_preparing_cur(st)**: This code prepare data for the task of Utterance forecasting. At the end of the code, we will find a prepared dataset for utterance forecasting. The preparation includes normalization and zero padding at the end. It takes step size as input.
+**UF_preparing_his(st)**: This code will take history for Utterance forecasting and prepare data for forecasting. This function has a dependendency and it is, we must run *UF_preparing_cur* first. It takes step size as input.
+**create_TF_subsets_from_UF()**: This piece of code will calculate the time distance of utterance step forecasting and organize all of them in a manner that their time distance fall into a definite time-group.
+**TF_preparing_cur(st)**: This function process the data from the subset of UF (which is saved time-distance wise or TF  1, 2 or 3). The processing includes making the statistical features and normalization. It takes step size as input.
+**TF_preparing_his(st)**: This code will take history for Time forecasting and prepare data for forecasting. This function has a dependendency and it is, we must run *TF_preparing_cur* first. It takes step size as input.
+**saving(st, FW, history)**: This code will save all the prepared and normalized data in a way that they can be used for running FC-DNN, D-LSTM and D-BLSTM network. It takes step size, forecasting window and history ('his' or 'cur') as input. The function returns the size of the data which will be used in *D_LSTM.py* and *D_BLSTM.py*. The variable returned will have following form:  >(utterance_number, window_size, 895). 
+
+
+b. For running different models, the 3 codes are used. Go to the **Full_EF** directory and run :
+- for FC-DNN > python FC_DNN.py
+- for D-LSTM and D-BLSTM, open the *D_LSTN.py* file. In the variable name *utterances*, put down the utterance_number and *W_Length*,put down the window_size from the output of *saving* function. Then run,
+> python D_LSTM.py
+> python D_BLSTM.py
+
+
+**FC_DNN.py**: This code will apply FC-DNN on your data
+**D_LSTM.py**: This code will apply D-LSTM on your data
+**D_LSTM.py**: This code will apply D-BLSTM on your data
+
 
 
