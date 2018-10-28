@@ -1,6 +1,6 @@
-% This code will take history for n_step forecasting and calculate
+% This code will take history for utterance forecasting and prepare data for
 % forecasting. This function has a dependendency and it is, we must run
-% preparing_cur
+% UF_preparing_cur first.
 
 % Created By: 
 %           Sadat Shahriar
