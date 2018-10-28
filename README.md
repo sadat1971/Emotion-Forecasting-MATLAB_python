@@ -20,8 +20,7 @@ Feature Extraction at 25 ms framerate and 50 ms window.
 **Step 2. Removal of NaNs**: For the NaN features, we have used linear interpolation. If the NaN values of an utterance is more than 30%, we have removed that utterance. 
 > code: gather_all_AV.m
 **Step 3. Windowing of the frames**: Then we do the windowing. 30 frames, with 50% overlap, using 5 statistical features-- means, std, first-quantile, third-quantile and interquartile range. In total, there will be 895 features (41 audio+138 video= 179 and 5 statistical 179X5=895 features)
-> code: f_window.m
-
+> code: f_window.m 
 **Step 4: Preparing and Normalizing data for Utterance Forecasting with current data only (UF-cur)**: for forecasting, we prepare the data. The preparation is tricky. Things we have to keep in mind-
 - Forecasting uses current data and label for the next utterance.
 - You must use data and label from the same speaker
