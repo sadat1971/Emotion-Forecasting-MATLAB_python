@@ -77,7 +77,7 @@ The same criterias are for D-BLSTM too.
 ## How to  Run
 
 For running the codes, you need _MATLAB (any version after 7.0)_, _Python  (Any version after 3.0)_ with keras installed.
-Download the the folder **Full_EF** and also put the **IEMOCAP_data** and **All_audiovisual** folders from >kimlab/Sadat/IEMOCAP_forcasting/Full_EF. 
+Download the the folder **Full_EF** and also put the **IEMOCAP_data** and **All_audiovisual** folders from **kimlab/Sadat/IEMOCAP_forcasting/Full_EF**. 
 
 a. For preaparing you desire dataset go to the **Full_EF** directory and run in matlab >MAIN_PROCESS(st, FW, history),
 
