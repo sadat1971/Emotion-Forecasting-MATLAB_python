@@ -79,7 +79,7 @@ The same criterias are for D-BLSTM too.
 For running the codes, you need _MATLAB (any version after 7.0)_, _Python  (Any version after 3.0)_ with keras installed.
 Download the the folder **Full_EF** and also put the **IEMOCAP_data** and **All_audiovisual** folders from **kimlab/Sadat/IEMOCAP_forcasting/Full_EF**. 
 
-a. For preaparing you desire dataset go to the **Full_EF** directory and run in matlab >MAIN_PROCESS(st, FW, history),
+a. For preaparing you desire dataset go to the **Full_EF** directory and run in matlab > MAIN_PROCESS(st, FW, history),
 
 where for *st* stands for step size (1, 2 or 3), *FW* stands for Forecasting Window ('UF' or 'TF') , and *history* stands for presence or absence of history ('cur' or 'his').
 For example, to prepare the dataset for TF-his 2, you have to write,
@@ -116,5 +116,8 @@ b. For running different models, the 3 codes are used. Go to the **Full_EF** dir
 
 **D_LSTM.py**: This code will apply D-BLSTM on your data
 
+### Running Pretrained Models:
+We also saved the pretarined models for out D-LSTM and D-BLSTM models. For every experiment we have a pretrained model for each speaker. The code **pretrained_testing.py** loads the pretrained model and show the test accuracy.
 
-
+How to run it---
+ Pretrained models are saved in the _kimlab_ server of UAlbany, SUNY. The directory is: /network/rit/lab/kimlab/Sadat/IEMOCAP_forcasting/sameframe/STATISTICAL and it has several folders where models are saved. Load the models for each speaker and then load necessary information and run it.  
