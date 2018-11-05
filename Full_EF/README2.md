@@ -1,2 +1,0 @@
-d  nmc dn
-*hjsdhkj*
