@@ -145,7 +145,7 @@ end
 mkdir TF_data
 gr_mat=[1 5;5 10;10 15];  %This is the group we want. 1 second to 5 second; 5 second to 10 second and so on
 for g=1:3
-    group=find(times>=gr_mat(g,1) & times<=gr_mat(g,2));
+    group=find(times>=gr_mat(g,1) & times<gr_mat(g,2));
     timestep=[]; %this will save the groupwise data
     for L=1:length(group)
         timestep(L).name=timewise(group(L)).name;
